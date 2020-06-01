@@ -1,5 +1,11 @@
 <div class="stud-list">
-  <p>
-    students-list works!
-  </p>
+  <h2>Students List</h2>
+  <div *ngFor="let student of students | async">
+    {{ student.name }} {{ student.surname }}
+  </div>
+
+  <h3>One student</h3>
+  <div>
+    {{ oneStudent }}
+  </div>
 </div>
