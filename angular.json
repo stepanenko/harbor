@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lv358": {
+    "students-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "aot": true,
-            "outputPath": "dist/lv358",
+            "outputPath": "dist/students-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "lv358:build"
+            "browserTarget": "students-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "lv358:build:production"
+              "browserTarget": "students-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lv358:build"
+            "browserTarget": "students-app:build"
           }
         },
         "test": {
@@ -113,7 +113,7 @@
         }
       }
     },
-    "lv358-e2e": {
+    "students-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -122,11 +122,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "lv358:serve"
+            "devServerTarget": "students-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "lv358:serve:production"
+              "devServerTarget": "students-app:serve:production"
             }
           }
         },
@@ -142,5 +142,5 @@
       }
     }
   },
-  "defaultProject": "lv358"
+  "defaultProject": "students-app"
 }
