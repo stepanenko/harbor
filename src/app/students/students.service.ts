@@ -10,18 +10,16 @@ import { Student } from './models/student.interface';
   providedIn: 'root'
 })
 export class StudentsService {
+  private url: string = './assets/samplejson/students.json';
 
   constructor(private http: HttpClient) { }
 
   getStudents(): Observable<Student[]> {
-    return this.http
-      .get<Student[]>('./assets/samplejson/students.json');
+    return this.http.get<Student[]>(this.url);
   }
 
   getStudent(id): Observable<Student> {
-    return this.http
-      .get<any[]>('./assets/samplejson/students.json')
+    return this.http.get<Student[]>(this.url)
       .pipe(map(data => data.find(x => x.id === id)));
   }
-
 }

@@ -1,9 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { StudentsService } from '../students.service';
 import { Student } from '../models/student.interface';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-students-list',
@@ -12,14 +12,16 @@ import { Observable } from 'rxjs';
 })
 export class StudentsListComponent implements OnInit {
   students: Observable<Student[]>;
-  oneStudent;
+  topStudent: Student;
   selectedStudent: Student;
 
   constructor(private studentsService: StudentsService) { }
 
   ngOnInit() {
     this.getStudents();
-    this.getStudent(1);
+    this.getStudent(2);
+    this.studentsService.getStudents()
+      .subscribe(list => this.selectedStudent = list[0]);
   }
 
   getStudents() {
@@ -27,13 +29,12 @@ export class StudentsListComponent implements OnInit {
       // .subscribe(students => this.students = students); // or use async pipe in html to render result data
   }
 
-  getStudent(id): void {
+  getStudent(id) {
     this.studentsService.getStudent(id)
-      .subscribe(oneStudent => this.oneStudent = oneStudent);
+      .subscribe(oneStudent => this.topStudent = oneStudent);
   }
 
   selectStudent(student) {
     this.selectedStudent = student;
   }
-
 }
