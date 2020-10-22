@@ -7,4 +7,4 @@
 - Selection of Student
 - Basic Layout with List, Menu and Description
 
-Updated on 4.10.2020
+Updated on 22.10.2020
