@@ -1,10 +1,12 @@
 
 import Fastify from 'fastify';
+import dbConnector from './dbConnector.js';
 import routes from './routes.js';
 
 const fastify = Fastify({ logger: { prettyPrint: true } });
 const PORT = 3000;
 
+fastify.register(dbConnector);
 fastify.register(routes);
 
 const start = async () => {

@@ -1,9 +1,9 @@
 
-import styles from './Learning.module.css';
+import styles from './Footer.module.css';
 
-function Learning() {
+function Footer() {
   return (
-    <div className={styles.learning}>
+    <div className={styles.footer}>
       <span>Learn </span>
       <a
         className="App-link"
@@ -53,4 +53,4 @@ function Learning() {
   )
 }
 
-export default Learning;
+export default Footer;

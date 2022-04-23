@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
 import Nav from './features/nav/Nav';
-import Learning from './features/learning/Learning';
+import Footer from './features/footer/Footer';
 
 import './App.css';
 
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Nav />
       <Outlet />
-      <Learning />
+      <Footer />
     </div>
   );
 }
