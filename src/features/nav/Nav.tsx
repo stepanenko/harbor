@@ -7,6 +7,7 @@ function Nav() {
   return (
     <nav className={styles.navigation}>
       <Link to="/home">Home</Link>
+      <Link to="/countries">Countries</Link>
       <Link to="/counter">Counter</Link>
     </nav>
   );

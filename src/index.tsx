@@ -8,6 +8,7 @@ import { store } from './app/store';
 
 import App from './App';
 import Home from './features/home/Home';
+import Countries from './features/countries';
 import { Counter } from './features/counter/Counter';
 
 import './index.css';
@@ -20,6 +21,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="home" element={<Home />} />
+            <Route path="countries" element={<Countries />} />
             <Route path="counter" element={<Counter />} />
           </Route>
         </Routes>
