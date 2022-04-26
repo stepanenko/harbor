@@ -23,6 +23,7 @@
     "typescript": "^4.6.3"
   },
   "scripts": {
+    "api": "node ./backend/server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

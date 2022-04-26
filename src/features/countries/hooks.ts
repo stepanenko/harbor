@@ -2,7 +2,9 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 
-export const BASE_URL = "http://localhost:4000/countries";
+export const BASE_URL = "http://localhost:4000";
+
+export const axiosClient = axios.create({ baseURL: BASE_URL });
 
 export interface Country {
   country: string,
@@ -11,6 +13,6 @@ export interface Country {
 
 export function useCountries() {
   return useQuery<Country[], Error>('countries', async () => {
-    return (await axios.get(BASE_URL)).data;
+    return (await axiosClient.get('/countries')).data;
   });
 }
