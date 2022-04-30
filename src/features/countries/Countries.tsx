@@ -11,12 +11,22 @@ function Countries() {
 
   return (
     <div className={styles.countries}>
-      <h1>Countries</h1>
+      <h1>Village Countries</h1>
       <ul>
-        {data?.map((c) => <li key={c._id}>{c.country}</li>)}
+        {data?.map(country => {
+          return <div key={country._id}>
+            <span>{country.name} </span>
+            <button onClick={() => deleteCountry(country.name)}>Delete</button>
+          </div>
+        })}
       </ul>
     </div>
   );
+
+  function deleteCountry(name: string) {
+
+    console.log(name, 'deleted!');
+  }
 }
 
 export default Countries;

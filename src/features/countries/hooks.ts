@@ -7,7 +7,7 @@ export const BASE_URL = "http://localhost:4000";
 export const axiosClient = axios.create({ baseURL: BASE_URL });
 
 export interface Country {
-  country: string,
+  name: string,
   _id: string
 };
 

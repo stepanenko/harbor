@@ -1,38 +1,28 @@
 
 export default async function routes(fastify, options) {
-  fastify.get('/', async (request, reply) => {
-    console.log('>>> Request', request.method, request.url);
-
-    return { hello: 'world' }
-  });
-
-  fastify.get('/help', async (request, reply) => {
-    console.log('>>> Request', request.method, request.url);
-
-    return 'Help page';
-  });
-
   const collection = fastify.mongo.db.collection('countries');
 
   fastify.get('/countries', async (request, reply) => {
-    const result = await collection.find().toArray();
-    if (result.length === 0) throw new Error('No documents found');
-
-    return result;
+    return await collection.find().toArray();
   });
 
-  fastify.get('/countries/:country', async (request, reply) => {
-    const result = await collection.findOne({ country: request.params.country });
-    if (!result) throw new Error('Invalid value');
+  fastify.get('/countries/:name', async (request, reply) => {
+    return await collection.findOne({ name: request.params.name });
+  });
 
-    return result;
+  fastify.delete('/countries/:name', async (request, reply) => {
+    try {
+      return await collection.deleteOne({ name: request.params.name });
+    } catch (err) {
+      return new Error(`Could not delete country. ${err}`); // works same as 'throw new...' ??
+    }
   });
 
   const countryBodyJsonSchema = {
     type: 'object',
-    required: ['country'],
+    required: ['name'],
     properties: {
-      country: { type: 'string' },
+      name: { type: 'string' },
     },
   };
 
@@ -42,8 +32,17 @@ export default async function routes(fastify, options) {
 
   fastify.post('/countries', { schema }, async (request, reply) => {
     // use the `request.body` object to get the data sent by the client
-    const result = await collection.insertOne({ country: request.body.country });
+    return await collection.insertOne({ name: request.body.name });
+  });
 
-    return result;
+
+  fastify.get('/', async (request, reply) => {
+    console.log('>>> Request', request.method, request.url);
+
+    return { name: 'Harbor API', health: 'OK', version: 0.1 };
+  });
+
+  fastify.get('/about', async (request, reply) => {
+    return 'Harbor Backend REST API Version 0.1';
   });
 }
