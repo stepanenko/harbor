@@ -3,4 +3,9 @@
 
 Created: 2022
 
-TODO: migrate to the new Vite+React folder
+Todo:
+- replace tailwind with MUI
+- add Mongo DB
+- add Auth logic
+- add React-Query
+- add CRUD
