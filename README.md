@@ -4,7 +4,7 @@
 Created: 2022
 
 Todo:
-- replace tailwind with MUI
+- add MUI
 - add Mongo DB
 - add Auth logic
 - add React-Query
