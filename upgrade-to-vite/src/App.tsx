@@ -1,22 +1,7 @@
-import { useState } from "react";
+import { ReactElement } from "react";
 import "./App.css";
+import { Home } from "./pages/home";
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <h1>Harbor</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <div>
-          <button>Login</button>
-        </div>
-      </div>
-    </>
-  );
-}
-
-export default App;
+export const App = (): ReactElement => {
+  return <Home />;
+};
