@@ -1,7 +1,13 @@
 import { ReactElement } from "react";
 import "./App.css";
-import { Home } from "./pages/home";
+import { Outlet } from "react-router-dom";
+import Nav from "./pages/nav/Nav";
 
 export const App = (): ReactElement => {
-  return <Home />;
+  return (
+    <>
+      <Nav />
+      <Outlet />
+    </>
+  )
 };
