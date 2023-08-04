@@ -8,6 +8,7 @@ import "./index.css";
 import { App } from "./App";
 import { Home } from "./pages/Home";
 import Countries from "./pages/countries";
+import Login from "./pages/login";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ root.render(
           <Route path="/" element={<App />}>
             <Route path="home" element={<Home />} />
             <Route path="countries" element={<Countries />} />
+            <Route path="login" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>

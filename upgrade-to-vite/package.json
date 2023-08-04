@@ -31,6 +31,6 @@
     "vite": "^4.4.5"
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": false
   }
 }
