@@ -8,7 +8,7 @@ function Nav() {
     <nav className={styles.navigation}>
       <Link to="/home">Home</Link>
       <Link to="/countries">Countries</Link>
-      <Link to="/about">About</Link>
+      <Link to="/login">Login</Link>
     </nav>
   );
 }

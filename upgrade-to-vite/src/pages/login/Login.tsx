@@ -5,11 +5,11 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleEmail = (e: ChangeEvent) => {
+  const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   }
 
-  const handlePassword = (e: ChangeEvent) => {
+  const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   }
 
@@ -19,11 +19,11 @@ export const Login = () => {
   }
 
   return (
-    <Paper elevation={3} sx={{ padding: 5, bgcolor: "#8a8a8a" }}>
-      <Box mb={3}>
-        <Typography variant="h5" mb={4}>Login</Typography>
+    <Paper elevation={3} sx={{ p: 5, m: 5 }}>
+      <Box mb={4}>
+        <Typography variant="h5" mb={3}>Login</Typography>
         <TextField
-          sx={{ padding: 1 }}
+          sx={{ mr: 2 }}
           required
           name="email"
           id="email"
@@ -32,7 +32,6 @@ export const Login = () => {
           onChange={handleEmail}
         />
         <TextField
-          sx={{ padding: 1 }}
           required
           name="password"
           id="password"
