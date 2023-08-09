@@ -24,16 +24,15 @@ export const Countries = () => {
 
   return (
     <>
-      <Typography variant="h5" p={2}>
-        Village Countries
-      </Typography>
+      <Typography variant="h5" p={2} pb={0}>Village Countries</Typography>
+      {isError &&
+        <Typography variant="body2" pl={2} color="red">
+          Couldn't get remote data: {error?.message}. Using local default data:
+        </Typography>
+      }
+
       <Box p={2} display="flex">
-
         <Paper sx={{ p: 1, width: 0.3 }}>
-          {isError &&
-            <span>Couldn't get remote data: {error?.message}. Using local default data:</span>
-          }
-
           <ul>
             {data?.map((country) => {
               return (
