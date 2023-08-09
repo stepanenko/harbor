@@ -1,5 +1,4 @@
-
-import styles from "./Countries.module.css";
+import { Box, Paper, Typography } from "@mui/material";
 import { Country, useCountries } from "./hooks";
 
 export const Countries = () => {
@@ -8,6 +7,10 @@ export const Countries = () => {
   // for local dev use:
   let [isLoading, isError, error] = [false, true, { message: "server offline" }];
   let data: Country[] | undefined;
+
+  function deleteCountry(name: string) {
+    console.log(name, "deleted!");
+  }
 
   if (isLoading) return <span>Loading...</span>;
   if (isError) {
@@ -20,25 +23,30 @@ export const Countries = () => {
   }
 
   return (
-    <div className={styles.countries}>
-      <h2>Village Countries</h2>
-      {isError && <>
-        <span>Couldn't get remote data: {error?.message}</span>
-        <p>Using local default data:</p>
-      </>}
+    <>
+      <Typography variant="h5" p={2}>
+        Village Countries
+      </Typography>
+      <Box p={2} display="flex">
 
-      <ul>
-        {data?.map(country => {
-          return <div key={country._id}>
-            <span>{country.name} </span>
-            <button onClick={() => deleteCountry(country.name)}>Delete</button>
-          </div>
-        })}
-      </ul>
-    </div>
-  );
+        <Paper sx={{ p: 1, width: 0.3 }}>
+          {isError &&
+            <span>Couldn't get remote data: {error?.message}. Using local default data:</span>
+          }
 
-  function deleteCountry(name: string) {
-    console.log(name, 'deleted!');
-  }
-}
+          <ul>
+            {data?.map((country) => {
+              return (
+                <div key={country._id}>
+                  <span>{country.name} </span>
+                  <button onClick={() => deleteCountry(country.name)}>x</button>
+                </div>
+              );
+            })}
+          </ul>
+        </Paper>
+
+        <Paper sx={{ p: 1, ml: 2, width: 0.7 }}>Test</Paper>
+      </Box>
+    </>);
+};

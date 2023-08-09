@@ -8,8 +8,11 @@ export const Home = (): ReactElement => {
 
   return (
     <Container>
-      <Typography variant="h1" mb={5} mt={2}>
+      <Typography variant="h1" mb={2} mt={2}>
         Harbor
+      </Typography>
+      <Typography variant="h5" mb={5}>
+        Citizen of the Earth
       </Typography>
       <Button variant="contained" onClick={handleClick}>Explore</Button>
     </Container>
