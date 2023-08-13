@@ -3,5 +3,8 @@
   "prettier.printWidth": 100,
   "prettier.prettierPath": "",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.configPath": "upgrade-to-vite/.prettierrc"
+  "prettier.configPath": "upgrade-to-vite/.prettierrc",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  }
 }

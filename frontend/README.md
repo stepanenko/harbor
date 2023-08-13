@@ -3,3 +3,5 @@
 Todo:
 - CRUD
 - Auth
+
+To update all packages run: `npm update --save`

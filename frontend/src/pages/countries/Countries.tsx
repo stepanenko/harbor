@@ -1,5 +1,6 @@
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Button, Paper, Typography } from "@mui/material";
 import { Country, useCountries } from "./hooks";
+import { Link } from "react-router-dom";
 
 export const Countries = () => {
   // let { isLoading, isError, data, error } = useCountries(); // uncomment if server is online
@@ -8,8 +9,8 @@ export const Countries = () => {
   let [isLoading, isError, error] = [false, true, { message: "server offline" }];
   let data: Country[] | undefined;
 
-  function deleteCountry(name: string) {
-    console.log(name, "deleted!");
+  function onCountrySelect(name: string) {
+    console.log(name, "selected!");
   }
 
   if (isLoading) return <span>Loading...</span>;
@@ -34,14 +35,16 @@ export const Countries = () => {
       <Box p={2} display="flex">
         <Paper sx={{ p: 1, width: 0.3 }}>
           <ul>
-            {data?.map((country) => {
-              return (
+            {data?.map((country) => (
                 <div key={country._id}>
-                  <span>{country.name} </span>
-                  <button onClick={() => deleteCountry(country.name)}>x</button>
+                  <Button
+                    to={`/countries/${country.name}`}
+                    component={Link}
+                    onClick={() => onCountrySelect(country.name)}
+                    role="button"
+                  >{country.name}</Button>
                 </div>
-              );
-            })}
+            ))}
           </ul>
         </Paper>
 
