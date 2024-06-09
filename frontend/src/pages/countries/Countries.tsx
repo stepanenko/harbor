@@ -6,7 +6,7 @@ export const Countries = () => {
   // let { isLoading, isError, data, error } = useCountries(); // uncomment if server is online
 
   // for local dev use:
-  let [isLoading, isError, error] = [false, true, { message: "server offline" }];
+  const [isLoading, isError, error] = [false, true, { message: "server offline" }];
   let data: Country[] | undefined;
 
   function onCountrySelect(name: string) {
@@ -28,7 +28,7 @@ export const Countries = () => {
       <Typography variant="h5" p={2} pb={0}>Village Countries</Typography>
       {isError &&
         <Typography variant="body2" pl={2} color="red">
-          Couldn't get remote data: {error?.message}. Using local default data:
+          Couldn't get remote data: {error?.message}. Using local data:
         </Typography>
       }
 

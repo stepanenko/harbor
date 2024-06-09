@@ -9,6 +9,7 @@ import { App } from "./App";
 import { Home } from "./pages/Home";
 import Countries from "./pages/countries";
 import Login from "./pages/login";
+import { Activities } from "./pages/activities/Activities";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ root.render(
           <Route path="/" element={<App />}>
             <Route path="home" element={<Home />} />
             <Route path="countries" element={<Countries />} />
+            <Route path="activities" element={<Activities />} />
             <Route path="login" element={<Login />} />
           </Route>
         </Routes>
