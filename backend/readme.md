@@ -1,7 +1,7 @@
 
 ## Harbor Backend
 
-Framework: Fastify 3.x
+Framework: Fastify 5.x
 
 Database: MongoDB
 

@@ -1,6 +1,9 @@
 
 export default async function routes(fastify, options) {
-  const collection = fastify.mongo.db.collection('countries');
+  const client = fastify.mongo.client;
+  const db = client.db(); // get the database instance
+
+  const collection = db.collection('countries');
 
   fastify.get('/countries', async (request, reply) => {
     return await collection.find().toArray();
@@ -43,6 +46,6 @@ export default async function routes(fastify, options) {
   });
 
   fastify.get('/about', async (request, reply) => {
-    return 'Harbor Backend REST API Version 0.1';
+    return 'Harbor Backend REST API Version 0.2';
   });
 }
