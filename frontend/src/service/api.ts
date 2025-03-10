@@ -1,17 +1,17 @@
-// import axios from "axios";
-// import { useQuery } from "react-query";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
-// export const BASE_URL = "http://localhost:4000";
+export const BASE_URL = "http://localhost:4000";
 
-// export const axiosClient = axios.create({ baseURL: BASE_URL });
+export const axiosClient = axios.create({ baseURL: BASE_URL });
 
-// export interface Country {
-//   name: string,
-//   _id: string
-// };
+export interface Country {
+  name: string,
+  _id: string
+}
 
-// export function useCountries() {
-//   return useQuery<Country[], Error>('countries', async () => {
-//     return (await axiosClient.get('/countries')).data;
-//   });
-// }
+const fetchCountries = async () => (await axiosClient.get('/countries')).data;
+
+export function useCountries() {
+  return useQuery<Country[], Error>({ queryKey: ["countries"], queryFn: fetchCountries });
+}

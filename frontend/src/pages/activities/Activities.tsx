@@ -3,11 +3,22 @@ import { Box, Typography } from "@mui/material";
 
 import { sxActiveTab, sxTab } from "./Activities.styles";
 
-const activities = [
+interface Streak {
+  [year: number]: { [month: number]: { [day: number]: number }};
+}
+
+interface Activity {
+  _id: string;
+  name: string;
+  priority: number;
+  streak?: Streak;
+}
+
+const activities: Activity[] = [
   { _id: "a1", name: "Books", priority: 4 },
   { _id: "a2", name: "English", priority: 5 },
-  { _id: "a3", name: "Gym", priority: 3 },
-]
+  { _id: "a3", name: "Gym", priority: 3, streak: { 2024: { 6: { 9: 2, 10: 4 }}} },
+];
 
 export const Activities = () => {
   const [activeTab, setActiveTab] = useState("");
@@ -36,5 +47,5 @@ export const Activities = () => {
         {name} {priority}
       </Box>
     </Box>
-  )
-}
+  );
+};

@@ -1,7 +1,7 @@
 
 export const sxTab = {
   cursor: "pointer",
-}
+};
 
 export const sxActiveTab = {
   ...sxTab,
